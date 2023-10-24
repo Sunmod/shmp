@@ -524,4 +524,60 @@ body {
   .footer .phone {
     font-size: 18px;
   }
+}
+
+.market__header .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.market__header .top div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.market__header .title {
+  font-family: DelaGothicOne;
+  font-size: 36px;
+  color: #232329;
+  letter-spacing: 0;
+  line-height: 36px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.market__header .button_result, .market__header .button_mix {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+.market__header .button_result:hover, .market__header .button_mix:hover {
+  cursor: pointer;
+}
+.market__header .button_mix {
+  font-size: 15px;
+  color: #EA523D;
+  letter-spacing: 0;
+  line-height: 12px;
+  background-image: url(../images/mix_icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right: 20px;
+  text-decoration: underline;
+  margin-left: 50px;
+  margin-bottom: 2px;
+}
+.market__header .button_mix:hover {
+  text-decoration: none;
+}
+.market__header .button_result {
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  line-height: 23.99px;
+  background-color: #232329;
+  width: 140px;
+  height: 40px;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
