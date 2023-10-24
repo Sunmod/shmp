@@ -10,7 +10,9 @@
       <header class="header">
          <div class="top">
             <?php the_custom_logo();?>
-            <div class="partners"></div>
+            <div class="partners">
+                <img class="banner" src="<?php bloginfo('template_url') ?>/assets/images/partners.png" alt="">
+            </div>
             <a class="phone" href="tel:88007070711">8 (800) <b>707-07-11</b> </a>
          </div>
          <div class="bottom">
