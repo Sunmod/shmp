@@ -13,7 +13,7 @@
             <div class="partners">
                 <img class="banner" src="<?php bloginfo('template_url') ?>/assets/images/partners.png" alt="">
             </div>
-            <a class="phone" href="tel:88007070711">8 (800) <b>707-07-11</b> </a>
+            <a class="phone" href="tel:<?php the_field('phone_number') ?>"><?php the_field('phone_page') ?></a>
          </div>
       </footer>
 
