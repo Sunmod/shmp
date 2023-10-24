@@ -27,10 +27,6 @@
 body
     margin: 0
     font-family: GothaPro
-   //  background-image: url(../images/background-image.png)
-   //  background-size: cover
-   //  background-repeat: no-repeat
-   //  background-position: top left
 
 //global
 *
@@ -52,40 +48,39 @@ body
 
 .header
    .top, .bottom
-        display: flex
-        justify-content: space-between
-        align-items: center
-        @media (max-width: 992px)
+      display: flex
+      justify-content: space-between
+      align-items: center
+      @media (max-width: 992px)
          padding: 0 10px
-
-   .top
-      .logo
-         width: 178px
-         height: 48px
-         background-image: url(../images/logo.png)
-         background-size: contain
-         background-position: center
-         background-repeat: no-repeat
-         @media (max-width: 992px)
-            width: 128px
-      .partners
-         width: 430px
-         height: 40px
-         background-image: url(../images/partners.png)
-         background-size: contain
-         background-position: center
-         background-repeat: no-repeat
-         @media (max-width: 992px)
-            display: none
-      .phone
-         font-family: GothaPro
-         font-size: 26px
-         color: #000000
-         letter-spacing: 0
-         line-height: 58px
-         text-decoration: none
-         @media (max-width: 992px)
-            font-size: 18px
+      
+   .logo
+      width: 178px
+      height: 48px
+      background-image: url(../images/logo.png)
+      background-size: contain
+      background-position: center
+      background-repeat: no-repeat
+      @media (max-width: 992px)
+         width: 128px
+   .partners
+      width: 430px
+      height: 40px
+      background-image: url(../images/partners.png)
+      background-size: contain
+      background-position: center
+      background-repeat: no-repeat
+      @media (max-width: 768px)
+         display: none
+   .phone
+      font-family: GothaPro
+      font-size: 26px
+      color: #000000
+      letter-spacing: 0
+      line-height: 58px
+      text-decoration: none
+      @media (max-width: 992px)
+         font-size: 18px
 
    .bottom
       background-color: #232329
@@ -186,7 +181,6 @@ body
          &.active::after
             bottom: 50%
             transform: rotate(45deg), translate(0, 50%)
-
 
 .banner__container
    margin: 20px 0
@@ -353,3 +347,58 @@ body
       &:last-child
          .step__item-description:last-child
             margin-top: 25px
+
+.footer
+   .top, .bottom
+      display: flex
+      justify-content: space-between
+      align-items: center
+      @media (max-width: 992px)
+         padding: 0 10px
+   .top
+      background-color: #232329
+      padding: 15px 20px
+      height: 70px
+      .navigation
+         display: flex
+         justify-content: space-between
+         max-width: 540px
+         width: 100%
+         a.link
+            font-weight: 100
+            color: #fff
+            font-size: 14px
+            letter-spacing: 0
+            line-height: 23.99px
+            &:hover
+               color: #EA523D
+               text-decoration: none
+   .bottom
+      margin: 20px 0
+   .logo
+      width: 178px
+      height: 48px
+      background-image: url(../images/logo.png)
+      background-size: contain
+      background-position: center
+      background-repeat: no-repeat
+      @media (max-width: 992px)
+         width: 128px
+   .partners
+      width: 430px
+      height: 40px
+      background-image: url(../images/partners.png)
+      background-size: contain
+      background-position: center
+      background-repeat: no-repeat
+      @media (max-width: 768px)
+         display: none
+   .phone
+      font-family: GothaPro
+      font-size: 26px
+      color: #000000
+      letter-spacing: 0
+      line-height: 58px
+      text-decoration: none
+      @media (max-width: 992px)
+         font-size: 18px
