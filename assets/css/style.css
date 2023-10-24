@@ -444,7 +444,7 @@ body {
   line-height: 50px;
   margin-bottom: 15px;
 }
-.steps__list .step__item .step__item-description {
+.steps__list .step__item p:last-child {
   font-size: 14px;
   color: #000000;
   letter-spacing: 0;
