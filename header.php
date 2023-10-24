@@ -11,9 +11,9 @@
          <div class="top">
             <?php the_custom_logo();?>
             <div class="partners">
-                <img class="banner" src="<?php bloginfo('template_url') ?>/assets/images/partners.png" alt="">
+                <img class="banner" src="<?php bloginfo('template_url'); ?>/assets/images/partners.png" alt="">
             </div>
-            <a class="phone" href="tel:<?php the_field('phone_number') ?>"><?php the_field('phone_page') ?></a>
+            <a class="phone" href="tel:<?php the_field('phone_number'); ?>"><?php the_field('phone_page'); ?></a>
          </div>
          <div class="bottom">
 
@@ -35,9 +35,9 @@
                <a class="link" href="">Монитор</a>
                <a class="link" href="">Дополнительные материалы</a>
                <a class="link" href="">Поддержка</a>
-               <a class="manual--mobile" href="">Инструкция к обучению</a>
+               <a class="manual--mobile" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
             </nav>
-            <a class="manual mobile" href="">Инструкция к обучению</a>
-            <a class="manual" href="">Инструкция к обучению</a>
+            <a class="manual mobile" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
+            <a class="manual" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
          </div>
       </header>

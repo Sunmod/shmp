@@ -6,69 +6,65 @@ TempLate Name: Главная страница
 
 <?php get_header(); ?>
     <section class="banner__container">
-         <img class="banner" src="<?php bloginfo('template_url') ?>/assets/images/banner1.png" alt="">
+         <img class="banner" src="<?php the_field('banner_image'); ?>" alt="">
       </section>
 
       <section class="container__block">
-         <p class="bold orange center" style="margin-bottom: 20px;">Уважаемые участники в декабре состоится Конкурс на лучший бизнес-проект, который<br>
-            предполагает возможность получить 1 млн. руб. Уже сейчас Вы можете ознакомиться с Положением<br>
-            о Конкурсе, графиком проведения и необходимыми документами для участия.</p>
-         <p class="bold center">Мы размещаем необходимую информацию заранее, чтобы у Вас было достаточно<br> времени для подготовки Вашего проекта.</p>
+         <p class="bold orange center" style="margin-bottom: 20px;">
+            <?php the_field('sub_banner_text1'); ?>
+        </p>
+         <p class="bold center">
+            <?php the_field('sub_banner_text2'); ?>
+        </p>
       </section>
 
       <section class="container__block">
-         <h2 class="title">График проведения конкурса</h2>
+         <h2 class="title">
+            <?php the_field('title1'); ?>
+        </h2>
          <div class="calendar__list">
-            <div class="calendar__item">
-               <div class="calendar__item-box">
-                  <span>до 8</span>
-                  <span>Декабря</span>
-               </div>
-               <p class="calendar__item-description">Подготовка<br> проекта<br> к конкурсу</p>
-            </div>
 
-            <div class="calendar__item">
-               <div class="calendar__item-box">
-                  <span>8-10</span>
-                  <span>Декабря</span>
-               </div>
-               <p class="calendar__item-description">Заявка<br> на участие,<br> публикация<br> проекта</p>
-            </div>
+<?php
+    global $post;
 
-            <div class="calendar__item">
-               <div class="calendar__item-box">
-                  <span>10-13</span>
-                  <span>Декабря</span>
-               </div>
-               <p class="calendar__item-description">Модерация проектов</p>
-            </div>
+    $myposts = get_posts([ 
+        'numberposts' => -1,
+        'category'    => 2
+    ]);
 
-            <div class="calendar__item">
+    if( $myposts ){
+        foreach( $myposts as $post ){
+            setup_postdata( $post );
+            ?>
+            <!-- Вывод постов, функции цикла: the_title() и т.д. -->
+            <div class="calendar__item <?php the_field('event')?>">
                <div class="calendar__item-box">
-                  <span>14-17</span>
-                  <span>Декабря</span>
+                  <span><?php the_field('day_number') ?></span>
+                  <span><?php the_field('month_name') ?></span>
                </div>
-               <p class="calendar__item-description">Голосование, открытие<br> биржи проектов</p>
+               <p class="calendar__item-description"><?php the_field('short_description') ?></p>
             </div>
+            <?php 
+        }
+    } else {
+        // Постов не найдено
+    }
 
-            <div class="calendar__item event">
-               <div class="calendar__item-box">
-                  <span>20</span>
-                  <span>Декабря</span>
-               </div>
-               <p class="calendar__item-description">Оглашение финальных результатов</p>
-            </div>
+    wp_reset_postdata(); // Сбрасываем $post
+?>
          </div>
       </section>
 
       <section class="container__block">
          <div class="condition__button-container">
-            <a class="condition__button" href="">Скачать положения конкурса</a>
+            <a class="condition__button" href="<?php the_field('button_download_link'); ?>" download><?php the_field('button_name'); ?></a>
          </div>
       </section>
 
       <section class="container__block">
-         <h2 class="title">Видеоролик презентации Вашего проекта должен быть не более 2 - 2:30 минут и содержательно должен отражать:</h2>
+         <h2 class="title">
+            <?php the_field('title2'); ?>
+        </h2>
          <div class="steps__list">
             <div class="step__item">
                <p class="step__item-number">1</p>
@@ -91,8 +87,12 @@ TempLate Name: Главная страница
                <p class="step__item-description">Одним предложением опишите, чем в наибольшей степени Вам помог Проект «Школа молодого предпринимателя. Бизнес молодых» (10 сек)*</p>
             </div>
             <div class="step__item">
-               <p class="step__item-description orange">*Указанный тайминг носит рекомендательный характер и может отличаться в Ваших видеоматериалах.</p>
-               <p class="step__item-description bold"><span class="orange bold">ВАЖНО:</span>вместе с видеороликом презентации Вам необходимо будет загрузить на платформу презентацию Вашего проекта, которую Вы защищаете на Конкурсе бизнес-проектов, в формате pdf.</p>
+                <p class="step__item-description orange">
+                    <?php the_field('information_text1'); ?> 
+                </p>
+                <p class="step__item-description bold"><span class="orange bold">ВАЖНО:ㅤ</span>
+                    <?php the_field('information_text2'); ?>
+                </p>
             </div>
          </div>
       </section>
