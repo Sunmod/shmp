@@ -24,9 +24,11 @@
 
            <nav class="navigation mobile">
                <?php wp_nav_menu( ['menu' => '6', 'menu_class' => 'menu-wp-mobile',]);?>
-               <a class="manual--mobile" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
+               <?php wp_nav_menu( ['menu' => '9', 'menu_class' => 'menu-wp-button']);?>
            </nav>
-           <a class="manual mobile" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
-           <a class="manual" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a> 
+
+           <?php wp_nav_menu( ['menu' => '7', 'menu_class' => 'menu-wp-button']);?>
+           <?php wp_nav_menu( ['menu' => '8', 'menu_class' => 'menu-wp-button']);?>
+           
          </div>
       </header>
