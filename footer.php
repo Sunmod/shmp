@@ -1,19 +1,13 @@
 <footer class="footer">
          <div class="top">
-            <nav class="navigation">
-               <a class="link" href="">Главная</a>
-               <a class="link" href="">Расписание</a>
-               <a class="link" href="">Монитор</a>
-               <a class="link" href="">Дополнительные материалы</a>
-               <a class="link" href="">Поддержка</a>
-            </nav>
+            <?php wp_nav_menu( ['menu' => '6', 'container_class' => 'navigation', 'menu_class' => 'menu-wp',]);?>
          </div>
          <div class="bottom">
          <?php the_custom_logo();?>
             <div class="partners">
                 <img class="banner" src="<?php bloginfo('template_url') ?>/assets/images/partners.png" alt="">
             </div>
-            <a class="phone" href="tel:<?php the_field('phone_number') ?>"><?php the_field('phone_page') ?></a>
+            <?php wp_nav_menu( ['menu' => '5', 'container' => 'false', 'menu_class' => 'menu-wp',]);?>
          </div>
       </footer>
 

@@ -13,31 +13,20 @@
             <div class="partners">
                 <img class="banner" src="<?php bloginfo('template_url'); ?>/assets/images/partners.png" alt="">
             </div>
-            <a class="phone" href="tel:<?php the_field('phone_number'); ?>"><?php the_field('phone_page'); ?></a>
+            <?php wp_nav_menu( ['menu' => '5', 'container' => 'false', 'menu_class' => 'menu-wp',]);?>
          </div>
          <div class="bottom">
 
             <div class="burger">
                <span></span>
             </div>
-   
-            <nav class="navigation">
-               <a class="link" href="">Главная</a>
-               <a class="link" href="">Расписание</a>
-               <a class="link" href="">Монитор</a>
-               <a class="link" href="">Дополнительные материалы</a>
-               <a class="link" href="">Поддержка</a>
-            </nav>
+            <?php wp_nav_menu( ['menu' => '6', 'container_class' => 'navigation', 'menu_class' => 'menu-wp',]);?>
 
-            <nav class="navigation mobile">
-               <a class="link" href="">Главная</a>
-               <a class="link" href="">Расписание</a>
-               <a class="link" href="">Монитор</a>
-               <a class="link" href="">Дополнительные материалы</a>
-               <a class="link" href="">Поддержка</a>
+           <nav class="navigation mobile">
+               <?php wp_nav_menu( ['menu' => '6', 'menu_class' => 'menu-wp-mobile',]);?>
                <a class="manual--mobile" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
-            </nav>
-            <a class="manual mobile" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
-            <a class="manual" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
+           </nav>
+           <a class="manual mobile" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a>
+           <a class="manual" href="<?php the_field('button_head_link'); ?>"><?php the_field('button_head_text'); ?></a> 
          </div>
       </header>

@@ -23,6 +23,8 @@ add_theme_support('title-tag');
 // заменя логотипа
 add_theme_support('custom-logo');
 
+add_theme_support( 'menus' );
+
 
 // скрипт добавляет возможность загружать свг логотипы в WP
 add_filter('upload_mimes','svg_upload_allow');
