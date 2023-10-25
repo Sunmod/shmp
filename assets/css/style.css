@@ -22,6 +22,14 @@
   font-stretch: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "PT Sans";
+  src: url("../fonts/PTSans.ttc") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-display: swap;
+}
 body {
   margin: 0;
   font-family: GothaPro;
@@ -535,6 +543,73 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+.market__header .bottom {
+  background-color: rgba(240, 169, 150, 0.44);
+  border: 1px solid #F1B7AD;
+  display: flex;
+  margin-top: 25px;
+}
+.market__header .bottom .user__name {
+  font-family: "PT Sans", sans-serif;
+  padding: 15px 20px;
+  border-right: 1px solid #F1B7AD;
+  display: flex;
+  align-self: center;
+  font-family: sans;
+  font-size: 13px;
+  color: #ED5338;
+  letter-spacing: 0;
+  max-width: 400px;
+  width: 100%;
+}
+.market__header .bottom .user__name span {
+  display: block;
+}
+.market__header .bottom .market__stat-block, .market__header .bottom .market__appreciated {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.market__header .bottom .market__stat-block {
+  max-width: 300px;
+  width: 100%;
+}
+.market__header .bottom .market__stat-block span:nth-child(1) {
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 12px;
+  font-weight: 600;
+}
+.market__header .bottom .market__stat-block span:nth-child(3) {
+  font-family: "PT Sans", sans-serif;
+  font-size: 13px;
+  color: #232329;
+  letter-spacing: 0;
+}
+.market__header .bottom .market__appreciated {
+  justify-content: space-around;
+  max-width: 230px;
+  width: 100%;
+  border-left: 1px solid #F1B7AD;
+}
+.market__header .bottom .market__appreciated span:nth-child(1) {
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 12px;
+  font-weight: 600;
+}
+.market__header .bottom .market__appreciated .count {
+  margin: 0;
+}
+.market__header .bottom .count {
+  border: 1px solid #000;
+  padding: 5px 10px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 13px;
+  color: #232329;
+  letter-spacing: 0;
+  margin: 0 5px;
 }
 .market__header .title {
   font-family: DelaGothicOne;
