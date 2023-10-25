@@ -6,7 +6,9 @@
       <section class="market__header">
          <div class="top">
             <div>
-               <h2 class="title">Биржа проектов</h2>
+               <h2 class="title">
+                  <?php the_field('title1'); ?>
+               </h2>
                <button class="button_mix">Перемешать</button>
             </div>
             <button class="button_result">Результаты</button>
