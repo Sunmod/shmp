@@ -655,4 +655,117 @@ body {
   width: 140px;
   height: 40px;
   text-align: center;
+}
+
+.market__list {
+  display: flex;
+  margin-top: 30px;
+  display: flex;
+}
+.market__list .market__list-item {
+  width: 300px;
+  height: 435px;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.market__list .market__list-item .market__item-content {
+  padding: 10px 10px 0;
+}
+.market__list .market__list-item .market__item-img {
+  max-height: 170px;
+  max-width: 280px;
+  display: block;
+}
+.market__list .market__list-item .market__item-company {
+  font-family: "Helvetica Neue";
+  font-size: 13px;
+  color: #000000;
+  letter-spacing: 1px;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.market__list .market__list-item .market__item-industry {
+  font-family: "Helvetica Neue";
+  font-size: 12px;
+  color: #939393;
+  letter-spacing: 0;
+  font-style: italic;
+}
+.market__list .market__list-item .market__item-description {
+  font-size: 13px;
+  color: #000000;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.market__list .market__list-item .line {
+  height: 1px;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.4;
+}
+.market__list .market__list-item .market__item-investment, .market__list .market__list-item .market__item-need {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 600;
+  padding: 10px 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+.market__list .market__list-item .market__item-investment div:first-child, .market__list .market__list-item .market__item-need div:first-child {
+  line-height: 11px;
+  font-size: 11px;
+  color: #232329;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  width: 70%;
+}
+.market__list .market__list-item .market__item-investment div:last-child, .market__list .market__list-item .market__item-need div:last-child {
+  line-height: 11px;
+  font-size: 11px;
+  color: #000000;
+  letter-spacing: 0;
+  width: 30%;
+}
+.market__list .market__list-item .market__item-need {
+  border-bottom: none;
+}
+.market__list .market__list-item .market__item-need div:last-child {
+  color: #ED5338;
+}
+.market__list .market__list-item .market__doaction-block {
+  background-color: #ECEBEB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.market__list .market__list-item .market__doaction-block span {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #232329;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+.market__list .market__list-item .market__doaction-block .market__doaction-input {
+  max-width: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  padding: 10px;
+  max-height: 30px;
+}
+.market__list .market__list-item .market__doaction-block .market__doaction-button {
+  background-color: #232329;
+  border: none;
+  color: #FFF;
+  font-size: 11px;
+  letter-spacing: 0;
+  height: 30px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
 }/*# sourceMappingURL=style.css.map */
