@@ -28,7 +28,7 @@
            </nav>
 
            <?php wp_nav_menu( ['menu' => '7', 'menu_class' => 'menu-wp-button']);?>
-           <?php wp_nav_menu( ['menu' => '8', 'menu_class' => 'menu-wp-button']);?>
+           <?php wp_nav_menu( ['menu' => '8', 'menu_class' => 'menu-wp-button', 'container_id' => 'MM1']);?>
            
          </div>
       </header>

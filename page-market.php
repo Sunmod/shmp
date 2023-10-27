@@ -15,7 +15,7 @@
          </div>
          <div class="bottom">
             <div class="user__name">
-                  Турбасов С. В.
+                  ВЫВЕСТИ DISPLAY NAME
             </div>
             <div class="market__stat-block">
                <span>Потрачено баллов:</span>
