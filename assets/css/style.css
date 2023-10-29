@@ -814,4 +814,24 @@ body {
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
+}
+
+.um-login.um {
+  margin: 150px auto !important;
+}
+.um-login.um .um-field-label label {
+  font-family: "Helvetica Neue";
+  color: #000;
+  font-weight: 400;
+}
+.um-login.um .um-form input[type=password], .um-login.um .um-form input[type=text] {
+  border-color: #000 !important;
+  border-radius: 0 !important;
+}
+.um-login.um .um-form input[type=password]:focus, .um-login.um .um-form input[type=text]:focus {
+  border-color: #ED5338 !important;
+}
+.um-login.um #um-submit-btn {
+  background-color: #ED5338 !important;
+  border-radius: 0 !important;
 }/*# sourceMappingURL=style.css.map */

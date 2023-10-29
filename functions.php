@@ -6,23 +6,18 @@ add_action('wp_enqueue_scripts' , 'script_styles');
 function script_styles() {
     //подключение стилей
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css' );
+    wp_enqueue_style('light_box_min', get_template_directory_uri() . '/assets/css/lightbox.min.css' );
+    wp_enqueue_style('light_box', get_template_directory_uri() . '/assets/css/lightbox.css' );
 
-    //поедлючение скриптов (если бы они были). Назвывается script, потому что так называется js файл, делаем это что бы самим не запутаться
-    //а вообще название может быть любое
-    //array нужен, если скрипт зависим от другого. Представим, что да и я пишу array('some_script'). Тоесть script заработает если заработает some_script
-    //там где null - пишется условная версия '1.0.0'
-    //true означает, что скрипт выполняется в footer
-    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/script.js', array('some_script'), 'null', true);
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/lightbox-plus-jquery.min.js', array('jquery'), 'null', true);
     //подключение jquery проводится по другому, загуглить!
 }
 
-// посты поддерживают картинки
-add_theme_support('post-thumbnails');
-// управление Title tag
-add_theme_support('title-tag');
-// заменя логотипа
-add_theme_support('custom-logo');
+// <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+add_theme_support('post-thumbnails');
+add_theme_support('title-tag');
+add_theme_support('custom-logo');
 add_theme_support( 'menus' );
 
 
