@@ -934,4 +934,57 @@ body {
   color: #767676;
   letter-spacing: 0;
   line-height: 18.99px;
+}
+.form p:last-child input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E04E3A;
+  border: none;
+  font-family: "Helvetica Neue";
+  font-size: 15px;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  padding: 15px;
+  text-transform: uppercase;
+}
+
+.machine__title span {
+  color: #EA523D;
+  position: relative;
+}
+
+.machine__title span::before {
+  content: "";
+  height: 30px;
+  width: 2px;
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  background: #EA523D;
+  transform: translateY(-45%);
+  animation: blink 0.7s infinite;
+}
+
+.machine__title span.stop-blinking::before {
+  animation: none;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+select {
+  width: 100%;
+  display: block;
+  border: none;
+  padding: 20px 10px;
+  font-family: "Helvetica Neue";
+  font-size: 15px;
+  color: #767676;
+  letter-spacing: 0;
+  border-radius: 0px !important;
+  box-shadow: none;
+  background: none;
 }/*# sourceMappingURL=style.css.map */
