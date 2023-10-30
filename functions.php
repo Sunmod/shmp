@@ -6,10 +6,7 @@ add_action('wp_enqueue_scripts' , 'script_styles');
 function script_styles() {
     //подключение стилей
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css' );
-    wp_enqueue_style('light_box_min', get_template_directory_uri() . '/assets/css/lightbox.min.css' );
-    wp_enqueue_style('light_box', get_template_directory_uri() . '/assets/css/lightbox.css' );
-
-    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/lightbox-plus-jquery.min.js', array('jquery'), 'null', true);
+    
     //подключение jquery проводится по другому, загуглить!
 }
 
