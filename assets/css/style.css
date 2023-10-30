@@ -901,4 +901,37 @@ body {
 }
 .table__results .table__results-item:nth-child(2n) {
   background-color: transparent;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ED5338;
+  background-color: #F4F4F4;
+  padding: 30px 10px;
+}
+.form p {
+  display: flex;
+  flex-direction: column;
+}
+.form p span:first-child {
+  font-family: "Helvetica Neue";
+  font-size: 15px;
+  color: #000000;
+  letter-spacing: 2px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+.form p span:last-child input, .form p span:last-child textarea {
+  width: 100%;
+  display: block;
+  border: 1px solid #6C6C6C;
+  padding: 20px 10px;
+  font-family: "Helvetica Neue";
+  font-size: 15px;
+  color: #767676;
+  letter-spacing: 0;
+  line-height: 18.99px;
 }/*# sourceMappingURL=style.css.map */

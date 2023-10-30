@@ -4,13 +4,9 @@
 // Добавление хука, который вызывает функцию script_styles и запускает подключение стилей
 add_action('wp_enqueue_scripts' , 'script_styles');
 function script_styles() {
-    //подключение стилей
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css' );
-    
-    //подключение jquery проводится по другому, загуглить!
+    wp_enqueue_script( 'machine_text', get_template_directory_uri() . '/assets/js/script.js', array(), false, true);
 }
-
-// <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
