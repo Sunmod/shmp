@@ -659,7 +659,7 @@ body
 
 .type
    display: inline-flex
-.type  span
+.type span
       width: 0%
       word-break: break-all
       overflow: hidden
@@ -668,6 +668,43 @@ body
 
 @keyframes move
    90%
-      
+      width: 90%
    100%
-      width: 100%
+      width: 120%
+
+.table__results
+   width: 100%
+   border: 1px solid #000
+   .table__results-head, .table__results-item
+      display: flex
+      justify-content: space-between
+      background-color: #DAAC8B
+      div
+         width: 100%
+         display: flex
+         align-items: center
+         padding: 20px 25px
+         color: #232329
+         text-transform: uppercase
+         font-family: 'Helvetica Neue'
+         font-size: 14px
+         font-weight: 400
+         letter-spacing: 2px
+         border-left: 1px solid #000
+      div:first-child, div:last-child
+         width: 140px
+         justify-content: center
+      div:first-child
+         background-color: #232329
+         color: #fff
+         border-left: none
+   .table__results-item, .table__results-item:nth-child(1)
+      background-color: #EDEDED
+      div:first-child
+         background-color: transparent
+      div
+         color: #232329 !important
+      div:nth-child(2)
+         color: #EA523D !important
+   .table__results-item:nth-child(2n)
+      background-color: transparent		

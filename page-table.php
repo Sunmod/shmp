@@ -4,23 +4,45 @@
 
 <?php get_header(); ?>
 
-<h1>СОЗДАЁМ САЙТЫ И ПРИЛОЖЕНИЯ,<br>
-КОТОРЫЕ
+<h1>Это анимация текста
     <span class=type>
-        <span>ПРИНОСЯТ ПРИБЫЛЬ</span>
+        <span>ПЕЧАТНОЙ МАШИНКИ </span>
     </span>
 </h1>
 
 <div class="container">
-<table class=table__results border="1">
-   <caption>Таблица размеров обуви</caption>
-   <tr>
-    <th>Место</th>
-    <th>Компания</th>
-    <th>Баллы</th>
-   </tr>
-    <tr><td>34,5</td><td>3,5</td><td>36</td></tr>
-  </table>
+    <div class="table__results">
+        <div class="table__results-head">
+            <div>Место</div>
+            <div>Компания</div>
+            <div><strong>Баллы</strong></div>
+        </div>
+        <?php
+                global $post;
+
+                $myposts = get_posts([ 
+                    'numberposts' => -1,
+                    'post_type'   => 'table',
+                    'order'       => 'ASC'
+                ]);
+
+                if( $myposts ){
+                    foreach( $myposts as $post ){
+                setup_postdata( $post );
+            ?>
+                <div class="table__results-item">
+                    <div><?php the_field('place'); ?></div>
+                    <div><?php the_title(); ?></div>
+                    <div><?php the_field('balls'); ?></div>
+                </div> 
+                <?php 
+                        }
+                } else {
+                    
+                }
+                wp_reset_postdata();
+            ?>
+    </div>
 </div>
 <div class="container">
     <?php the_content(); ?>
