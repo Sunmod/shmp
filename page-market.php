@@ -15,7 +15,7 @@
          </div>
          <div class="bottom">
             <div class="user__name">
-                  ВЫВЕСТИ DISPLAY NAME
+               <?php echo get_user_fio() ?>
             </div>
             <div class="market__stat-block">
                <span>Потрачено баллов:</span>

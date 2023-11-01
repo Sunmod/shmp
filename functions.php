@@ -5,7 +5,7 @@
 add_action('wp_enqueue_scripts' , 'script_styles');
 function script_styles() {
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css' );
-    wp_enqueue_script( 'machine_text', get_template_directory_uri() . '/assets/js/script.js', array(), false, true);
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/script.js','','',true);
 }
 
 add_theme_support('post-thumbnails');
@@ -42,3 +42,68 @@ function fix_svg_mime_type($data,$file,$filename,$mimes,$real_mime=''){
 }
 
 add_filter( 'show_admin_bar', '__return_true' );
+
+function event_date($date){
+    $new_date = getdate(strtotime($date));
+    $my_months=[
+        'January'   => 'Январе',
+        'February'  => 'Феврале',
+        'March'     => 'Марте',
+        'April'     => 'Апреле',
+        'May'       => 'Мае',
+        'June'      => 'Июне',
+        'July'      => 'Июле',
+        'August'    => 'Августе',
+        'September' => 'Сентябре',
+        'October'   => 'Октябре',
+        'November'  => 'Ноябре',
+        'December'  => 'Декабре',
+    ];
+
+    $new_date['month']= $my_months[$new_date['month']];
+
+    return $new_date['month'];
+}
+function event_date_single($date){
+    $new_date = getdate(strtotime($date));
+    $my_months=[
+        'January'   => 'Января',
+        'February'  => 'Февраля',
+        'March'     => 'Марта',
+        'April'     => 'Апреля',
+        'May'       => 'Мая',
+        'June'      => 'Июня',
+        'July'      => 'Июля',
+        'August'    => 'Августа',
+        'September' => 'Сентября',
+        'October'   => 'Октября',
+        'November'  => 'Ноября',
+        'December'  => 'Декабря',
+    ];
+
+    $new_date['month']= $my_months[$new_date['month']];
+
+    return $new_date['month'];
+}
+
+function num_decline($number, $titles, $show_number = true)
+{
+    if (is_string($titles)) {
+        $titles = preg_split('/, */', $titles);
+    }
+    if (empty($titles[2])) {
+        $titles[2] = $titles[1];
+    }
+    $cases = [2, 0, 1, 1, 1, 2];
+    $intnum = abs((int)strip_tags($number));
+    $title_index = ($intnum % 100 > 4 && $intnum % 100 < 20)
+        ? 2
+        : $cases[min($intnum % 10, 5)];
+    return ($show_number ? "$number " : '') . $titles[$title_index];
+}
+
+function get_user_fio() {
+    $current_user = wp_get_current_user();
+    $fio = $current_user->last_name . ' ' . $current_user->first_name . ' ' . $current_user->surname;
+    return $fio;
+}

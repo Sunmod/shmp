@@ -598,6 +598,7 @@ body {
   letter-spacing: 0;
   max-width: 400px;
   width: 100%;
+  text-transform: uppercase;
 }
 .market__header .bottom .user__name span {
   display: block;
