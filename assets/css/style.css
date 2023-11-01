@@ -495,6 +495,10 @@ body {
   margin-top: 25px;
 }
 
+.footer {
+  max-width: 940px;
+  margin: auto;
+}
 .footer .top, .footer .bottom {
   display: flex;
   justify-content: space-between;
