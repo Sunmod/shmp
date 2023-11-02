@@ -21,13 +21,19 @@
 
     foreach ($arrayEventId as $value) {
         $array = $wpdb->get_results("SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id = $value", ARRAY_N);
-        
+
+        $start_string = implode('', $array[2]);
+        $start_int = strtotime($start_string);
+        $start_date = date('Y-m-d', $start_int);
+
+        $end_string = implode('', $array[2]);
+        $end_int = strtotime($end_string);
+        $end_date = date('Y-m-d', $end_int);
+
+
         $item = array(
-
-
-
-            'start' => implode('', intval(date('Y-m-d', $array[2]))),
-            'end' => implode('', $array[4]),
+            'start' => $start_date,
+            'end' => $end_date,
             'url' => implode('', $array[6])
         );
         array_push($event_metadate, $item);
@@ -37,11 +43,7 @@
 
     <?php  echo json_encode($event_metadate);?>
 
-    <hr>
-    <br>
-    <hr>
-
-
+    
 
     </div>
 
