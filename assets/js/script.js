@@ -11,13 +11,24 @@ document.addEventListener('DOMContentLoaded', function() {
     initialDate: '2023-01-12',
     editable: true,
     selectable: true,
-    dayMaxEvents: true, // allow "more" link when too many events
+    // dayMaxEvents: true, // allow "more" link when too many events
     // multiMonthMaxColumns: 1, // guarantee single column
     // showNonCurrentDates: true,
     // fixedWeekCount: false,
-    // businessHours: true,
+    businessHours: true,
     // weekends: false,
+    eventTimeFormat: {
+      hour: 'numeric',
+      minute: '2-digit',
+      meridiem: false,
+    },
     events: [
+      {
+        title: 'День рождения',
+        start: '2023-01-10',
+        display: 'background',
+        type: 'test'
+      },
       {
         title: 'All Day Event',
         start: '2023-01-01'
@@ -40,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         title: 'Conference',
         start: '2023-01-11',
-        end: '2023-01-13'
+        end: '2023-01-15'
       },
       {
         title: 'Meeting',
@@ -70,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         title: 'Click for Google',
         url: 'http://google.com/',
-        start: '2023-01-28'
+        start: '2023-01-28',
       }
     ]
   });
