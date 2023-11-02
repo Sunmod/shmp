@@ -111,3 +111,37 @@ function get_user_fio() {
     $fio = $current_user->last_name . ' ' . $current_user->first_name . ' ' . $current_user->surname;
     return $fio;
 }
+
+function get_calendar_events() {
+
+    global $wpdb;
+
+    $event_metadate = array();
+    $arrayEventId = array();
+    $event_id = $wpdb->get_results("SELECT id FROM {$wpdb->prefix}posts WHERE post_type = 'calendar_event' AND post_status = 'publish'", ARRAY_N);
+    for( $i = 0; $i < count($event_id); $i++ ) {
+        array_push($arrayEventId, $event_id[$i][0]);
+    }
+
+    foreach ($arrayEventId as $value) {
+        $array = $wpdb->get_results("SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id = $value", ARRAY_N);
+
+        $start_string = implode('', $array[2]);
+        $start_int = strtotime($start_string);
+        $start_date = date('Y-m-d', $start_int);
+
+        $end_string = implode('', $array[2]);
+        $end_int = strtotime($end_string);
+        $end_date = date('Y-m-d', $end_int);
+
+
+        $item = array(
+            'start' => $start_date,
+            'end' => $end_date,
+            'url' => implode('', $array[6])
+        );
+        array_push($event_metadate, $item);
+    
+    }  
+   return json_encode($event_metadate);
+}
