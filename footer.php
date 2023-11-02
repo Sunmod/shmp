@@ -13,13 +13,14 @@
 
 
     </div>
-<script>
-   document.querySelector('.burger').addEventListener('click', function() {
-      this.classList.toggle('active');
-      document.querySelector('.navigation.mobile').classList.toggle('open');
-      document.querySelector('.manual.mobile').classList.toggle('open');
-      document.querySelector('.bottom').classList.toggle('open');
-   })
-</script>
+   <script>
+      document.querySelector('.burger').addEventListener('click', function() {
+         this.classList.toggle('active');
+         document.querySelector('.navigation.mobile').classList.toggle('open');
+         document.querySelector('.manual.mobile').classList.toggle('open');
+         document.querySelector('.bottom').classList.toggle('open');
+      })
+   </script>
+   <?php wp_footer();?>
 </body>
 </html>
