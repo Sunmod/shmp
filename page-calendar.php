@@ -9,14 +9,11 @@
     <?php echo get_user_fio() ?> <span style="font-size:11px">(запись слева выведена из базы с объеденением нескольких значений)</span>
     <hr>
 
-    <hr>
-    <?php echo get_calendar_events()?>
-
     </div>
         <div class="page-header">
             <h1>Календарь мероприятий</h1>
 
-            <div id='calendar'></div>
+            <div id="calendar"></div>
         </div>
     </div>
 </div>

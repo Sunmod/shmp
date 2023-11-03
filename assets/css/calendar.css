@@ -1,0 +1,52 @@
+#calendar .fc-scrollgrid,
+#calendar .fc-scrollgrid thead,
+#calendar .fc-scrollgrid tbody,
+#calendar .fc-scrollgrid tbody tr
+#calendar .fc-scrollgrid tbody tr td {
+    border: none;
+}
+
+#calendar .fc table {
+    border-collapse: separate !important;
+}
+
+.fc-scrollgrid-sync-table tbody tr td {
+    position: relative;
+    border: none;
+}
+
+
+.fc .fc-daygrid-day-frame {
+    border-radius: 50%;
+    min-height: auto;
+
+}
+
+#calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td .fc-daygrid-day-frame{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000;
+    margin: 0 auto;
+    margin-top: calc(50% - 30px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#calendar div div .fc-scrollgrid tbody tr td {
+    border: none;
+}
+
+#calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td .fc-daygrid-day-frame .fc-daygrid-day-events {
+    display: none;
+}
+
+#calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td {
+    padding: 0;
+    background-color: transparent;
+}
+
+.fc-non-business {
+    border-radius: 30px;
+}
