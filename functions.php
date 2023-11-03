@@ -146,3 +146,15 @@ function get_calendar_events() {
     }  
    return $events = json_encode($event_metadate);
 }
+
+add_filter( 'single_template', function ( $single_template ) {
+ 
+    $parent     = '51'; //Здесь вставляем id категории(рубрики) для которой хотите изменить шаблон у детальной страницы записи
+    $categories = get_categories( 'child_of=' . $parent );
+    $cat_names  = wp_list_pluck( $categories, 'name' );
+ 
+    if ( has_category( 'movies' ) || has_category( $cat_names ) ) {
+        $single_template = dirname( __FILE__ ) . '/page-market_post.php'; // название файла шаблона
+    }
+    return $single_template;
+}, PHP_INT_MAX, 2 );
