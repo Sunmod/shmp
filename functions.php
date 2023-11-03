@@ -138,10 +138,11 @@ function get_calendar_events() {
         $item = array(
             'start' => $start_date,
             'end' => $end_date,
-            'url' => implode('', $array[6])
+            'url' => implode('', $array[6]),
+            'title' => implode('', $array[8]),
         );
         array_push($event_metadate, $item);
     
     }  
-   return json_encode($event_metadate);
+   return $events = json_encode($event_metadate);
 }
