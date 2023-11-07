@@ -7,9 +7,7 @@
 
     <br>
     <?php echo get_user_fio() ?> <span style="font-size:11px">(имя выведено из базы с объеденением нескольких значений)</span>
-    <hr>
-   
-    </div>
+    </div>   
         <div class="page-header">
             <h1>Календарь мероприятий</h1>
 

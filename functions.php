@@ -45,67 +45,6 @@ function fix_svg_mime_type($data,$file,$filename,$mimes,$real_mime=''){
 
 add_filter( 'show_admin_bar', '__return_true' );
 
-// Это код календаря с кубсайнц. Пока не понимаю как его использовать
-
-// function event_date($date){
-//     $new_date = getdate(strtotime($date));
-//     $my_months=[
-//         'January'   => 'Январе',
-//         'February'  => 'Феврале',
-//         'March'     => 'Марте',
-//         'April'     => 'Апреле',
-//         'May'       => 'Мае',
-//         'June'      => 'Июне',
-//         'July'      => 'Июле',
-//         'August'    => 'Августе',
-//         'September' => 'Сентябре',
-//         'October'   => 'Октябре',
-//         'November'  => 'Ноябре',
-//         'December'  => 'Декабре',
-//     ];
-
-//     $new_date['month']= $my_months[$new_date['month']];
-
-//     return $new_date['month'];
-// }
-// function event_date_single($date){
-//     $new_date = getdate(strtotime($date));
-//     $my_months=[
-//         'January'   => 'Января',
-//         'February'  => 'Февраля',
-//         'March'     => 'Марта',
-//         'April'     => 'Апреля',
-//         'May'       => 'Мая',
-//         'June'      => 'Июня',
-//         'July'      => 'Июля',
-//         'August'    => 'Августа',
-//         'September' => 'Сентября',
-//         'October'   => 'Октября',
-//         'November'  => 'Ноября',
-//         'December'  => 'Декабря',
-//     ];
-
-//     $new_date['month']= $my_months[$new_date['month']];
-
-//     return $new_date['month'];
-// }
-
-// function num_decline($number, $titles, $show_number = true)
-// {
-//     if (is_string($titles)) {
-//         $titles = preg_split('/, */', $titles);
-//     }
-//     if (empty($titles[2])) {
-//         $titles[2] = $titles[1];
-//     }
-//     $cases = [2, 0, 1, 1, 1, 2];
-//     $intnum = abs((int)strip_tags($number));
-//     $title_index = ($intnum % 100 > 4 && $intnum % 100 < 20)
-//         ? 2
-//         : $cases[min($intnum % 10, 5)];
-//     return ($show_number ? "$number " : '') . $titles[$title_index];
-// }
-
 function get_user_fio() {
     $current_user = wp_get_current_user();
     $fio = $current_user->last_name . ' ' . $current_user->first_name . ' ' . $current_user->surname;
@@ -124,27 +63,17 @@ function get_calendar_events() {
     }
 
     foreach ($arrayEventId as $value) {
-        $array = $wpdb->get_results("SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id = $value", ARRAY_N);
-
-        $start_string = implode('', $array[4]);
-        $start_int = strtotime($start_string);
-        $start_date = date('Y-m-d', $start_int);
-
-        $end_string = implode('', $array[6]);
-        $end_int = strtotime($end_string);
-        $end_date = date('Y-m-d', $end_int);
-
 
         $item = array(
-            'start' => $start_date,
-            'end' => $end_date,
-            'url' => implode('', $array[8]),
-            'title' => implode('', $array[2]),
+            'start' => date('Y-m-d', strtotime(get_post_meta($value, 'event_start', true))),
+            'end' => date('Y-m-d', strtotime(get_post_meta($value, 'event_end', true))),
+            'url' => get_post_meta($value, 'event_title', true),
+            'title' => get_post_meta($value, 'event_url', true)
         );
+
         array_push($event_metadate, $item);
-    
-    }  
-   return $events = json_encode($event_metadate);
+    }
+    return $events = json_encode($event_metadate);
 }
 
 add_filter( 'single_template', function ( $single_template ) {
