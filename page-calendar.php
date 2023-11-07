@@ -6,9 +6,9 @@
 <div class="container">
 
     <br>
-    <?php echo get_user_fio() ?> <span style="font-size:11px">(запись слева выведена из базы с объеденением нескольких значений)</span>
+    <?php echo get_user_fio() ?> <span style="font-size:11px">(имя выведено из базы с объеденением нескольких значений)</span>
     <hr>
-
+   
     </div>
         <div class="page-header">
             <h1>Календарь мероприятий</h1>

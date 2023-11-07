@@ -34,13 +34,48 @@
     justify-content: center;
 }
 
+#calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td .fc-daygrid-day-frame .fc-daygrid-day-events {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td .fc-daygrid-day-frame .fc-daygrid-day-events .fc-daygrid-event-harness {
+    box-sizing: content-box;
+    border-radius: 50%;
+    border: 5px solid #EA523D;
+    height: 53px;
+    margin: 0 !important;
+    width: 53px;
+    position: absolute;
+    left: -3px !important;
+    top: -3px !important;
+    z-index: 10;
+}
+
+#calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td .fc-daygrid-day-frame .fc-daygrid-day-events .fc-daygrid-event-harness-abs {
+    display: none;
+}
+
 #calendar div div .fc-scrollgrid tbody tr td {
     border: none;
 }
 
-#calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td .fc-daygrid-day-frame .fc-daygrid-day-events {
+
+/* скрыл ссылку на ивент (сам блок, который виден при сущестовании ивента) */
+
+#calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td .fc-daygrid-day-frame .fc-daygrid-day-events .fc-daygrid-event-harness a {
     display: none;
 }
+
+/* скрыл сам ивент (дата будет пустая без событий) */
+
+/* #calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td .fc-daygrid-day-frame .fc-daygrid-day-events {
+    display: none;
+} */
 
 #calendar div div .fc-scrollgrid tbody tr td div div div .fc-scrollgrid-sync-table tbody tr td {
     padding: 0;

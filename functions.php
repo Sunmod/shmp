@@ -126,11 +126,11 @@ function get_calendar_events() {
     foreach ($arrayEventId as $value) {
         $array = $wpdb->get_results("SELECT meta_value FROM {$wpdb->prefix}postmeta WHERE post_id = $value", ARRAY_N);
 
-        $start_string = implode('', $array[2]);
+        $start_string = implode('', $array[4]);
         $start_int = strtotime($start_string);
         $start_date = date('Y-m-d', $start_int);
 
-        $end_string = implode('', $array[2]);
+        $end_string = implode('', $array[6]);
         $end_int = strtotime($end_string);
         $end_date = date('Y-m-d', $end_int);
 
@@ -138,8 +138,8 @@ function get_calendar_events() {
         $item = array(
             'start' => $start_date,
             'end' => $end_date,
-            'url' => implode('', $array[6]),
-            'title' => implode('', $array[8]),
+            'url' => implode('', $array[8]),
+            'title' => implode('', $array[2]),
         );
         array_push($event_metadate, $item);
     

@@ -47,7 +47,7 @@
                <div class="market__list-item">
                <div class="market__item-content">
                   <a href="<?php echo get_permalink(); ?>">
-                     <?php the_post_thumbnail('thumbnail', array('class' => 'market__item-img')); ?>
+                     <?php the_post_thumbnail('full', array('class' => 'market__item-img')); ?>
                   </a>
                   <div class="market__item-company"><?php the_title(); ?></div>
                   <div class="market__item-industry"><?php the_field('project_industry'); ?></div>
