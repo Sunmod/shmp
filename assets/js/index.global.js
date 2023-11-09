@@ -2781,6 +2781,7 @@ var FullCalendar = (function (exports) {
             let { dateEnv } = this.props;
             let prevDate = dateEnv.subtract(dateEnv.startOf(currentDate, currentDateProfile.currentRangeUnit), // important for start-of-month
             currentDateProfile.dateIncrement);
+            // console.log(this.build(prevDate, -1, forceToValid));
             return this.build(prevDate, -1, forceToValid);
         }
         // Builds a structure with info about what the dates/ranges will be for the "next" view.
@@ -2788,6 +2789,7 @@ var FullCalendar = (function (exports) {
             let { dateEnv } = this.props;
             let nextDate = dateEnv.add(dateEnv.startOf(currentDate, currentDateProfile.currentRangeUnit), // important for start-of-month
             currentDateProfile.dateIncrement);
+            // console.log(this.build(nextDate, 1, forceToValid));
             return this.build(nextDate, 1, forceToValid);
         }
         // Builds a structure holding dates/ranges for rendering around the given date.

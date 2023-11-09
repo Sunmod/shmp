@@ -37,7 +37,7 @@
                 $myposts = get_posts([ 
                     'numberposts' => -1,
                     'post_type'   => 'project',
-                    'order'       => 'ASC'
+                    'order'       => 'date'
                 ]);
 
                 if( $myposts ){

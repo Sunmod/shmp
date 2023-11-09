@@ -9,6 +9,7 @@ function script_styles() {
 
     wp_enqueue_script( 'calendar1', get_template_directory_uri() . '/assets/js/script.js',  array(), '1' );
     wp_enqueue_script( 'calendar2', get_template_directory_uri() . '/assets/js/index.global.js',  array(), '1' ); 
+    wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js',  array(), '1' ); 
 }
 
 add_theme_support('post-thumbnails');
@@ -66,9 +67,9 @@ function get_calendar_events() {
 
         $item = array(
             'start' => date('Y-m-d', strtotime(get_post_meta($value, 'event_start', true))),
-            'end' => date('Y-m-d', strtotime(get_post_meta($value, 'event_end', true))),
-            'url' => get_post_meta($value, 'event_title', true),
-            'title' => get_post_meta($value, 'event_url', true)
+            'end' => get_post_meta($value, 'event_end', true) ? date('Y-m-d', strtotime(get_post_meta($value, 'event_end', true))) : '',
+            'url' => get_post_meta($value, 'event_url', true),
+            'title' => get_post_meta($value, 'event_title', true)
         );
 
         array_push($event_metadate, $item);
