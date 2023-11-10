@@ -93,16 +93,14 @@
                 wp_reset_postdata();
             ?>
             <pre>
-               
+            
             </pre>
             <div class="events__list"></div>
-            <hr>
-            <hr>
-            <hr>
+            
         </div>
         
         <!-- <div id="calendar"></div> -->
-        <?php echo Calendar::getMonth(date('n'), date('Y')); ?>
+        <?php echo Calendar::getMonth(date('n'), date('Y'), $events); ?>
         
     </div>
 </div>

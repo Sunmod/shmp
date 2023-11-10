@@ -89,6 +89,11 @@ add_filter( 'single_template', function ( $single_template ) {
     return $single_template;
 }, PHP_INT_MAX, 2 );
 
+$events = array(
+    '16'    => 'Заплатить ипотеку',
+    '08.11' => 'Международный женский день',
+    '30.11.2023' => 'Новый год'
+);
 
 
 class Calendar 
@@ -120,15 +125,10 @@ class Calendar
 
     // передаем массив ивентам
     // TODO изменить массив, где индекс низачто не отвечает, в его значениях уже передавать дату начала и окончания, а так же остальные данные, такие как текст, ссылка и т.д
-        $events = array(
-            '16'    => 'Заплатить ипотеку',
-            '23.11' => 'День защитника Отечества',
-            '08.11' => 'Международный женский день',
-            '31.11' => 'Новый год'
-        );
  
-        // создается рисовка календаря
+        // не понимаю
 		$month = intval($month);
+
         // создается рисовка шапки календаря
 		$out = '
 		<div class="calendar-item">
@@ -197,27 +197,34 @@ class Calendar
                 // запускаем цикл
 				foreach ($events as $date => $text) {
 
-                    var_dump($date);
+                    // преобразует из целых чисел (16) и сдвоенных числе (23.11) и строенных чисел (30.11.2023)
+                    // в строка [string 16] и [string 23, string 11] и [string 30, string 11, string 2023]
 					$date = explode('.', $date);
-                    var_dump($date);
                     
+                    // если есть день, месяц и год
 					if (count($date) == 3) {
+                        // получает какой год
 						$y = explode(' ', $date[2]);
 						if (count($y) == 2) {
-							$date[2] = $y[0];
+							$date[2] = $y[0];  
+                            // не понимаю что тут происходит 
+                            // var_dump($date);
 						}
  
+                        // так как есть что-то в этот день в массиве - делает событие
 						if ($day == intval($date[0]) && $month == intval($date[1]) && $year == $date[2]) {
 							$event_show = true;
 							$event_text[] = $text;
-                            
 						}
 					} elseif (count($date) == 2) {
+                        // так как есть что-то в этот день в массиве - делает событие
 						if ($day == intval($date[0]) && $month == intval($date[1])) {
 							$event_show = true;
+                            // преобразует значение в массиве в текст и выводит. Например в данном случае вывело "международный женский день"
 							$event_text[] = $text;
                             // вывело 8 11 и 23 11 (выводит события, которые только в течении этого месяца?)
 						}
+                        // так как есть что-то в этот день в массиве - делает событие
 					} elseif ($day == intval($date[0])) {
 						$event_show = true;
 						$event_text[] = $text;
@@ -226,17 +233,23 @@ class Calendar
 				}
 			}
 			
+            // если этот день явсляется событием
 			if ($event_show) {
+                // $class - css, $day - отрисовка числа дня в календаре
 				$out.= '<td class="calendar-day ' . $class . ' event">' . $day;
+                // если есть текст в массиве
 				if (!empty($event_text)) {
-                    // окно вывода информации о дне
+                    // выводит текст
 					$out.= '<div class="calendar-popup">' . implode('<br>', $event_text) . ' TEXT ' . '</div>';
 				}
 				$out.= '</td>';
-			} else {
+			} 
+            // если этот день не  является событием
+            else {
 				$out.= '<td class="calendar-day ' . $class . '">' . $day . '</td>';
 			}
  
+            // конструирует недели в календаре (после воскресенья делает перенос)
 			if ($day_week == 6) {
 				$out.= '</tr>';
 				if (($days_counter + 1) != $days_month) {
