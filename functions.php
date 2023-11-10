@@ -88,3 +88,199 @@ add_filter( 'single_template', function ( $single_template ) {
     }
     return $single_template;
 }, PHP_INT_MAX, 2 );
+
+
+
+class Calendar 
+{
+	/**
+	 * Вывод календаря на один месяц.
+	 */
+	public static function  getMonth($month, $year, $events = array())
+    // задаем массив с месяцами
+	{
+		$months = array(
+			1  => 'Январь',
+			2  => 'Февраль',
+			3  => 'Март',
+			4  => 'Апрель',
+			5  => 'Май',
+			6  => 'Июнь',
+			7  => 'Июль',
+			8  => 'Август',
+			9  => 'Сентябрь',
+			10 => 'Октябрь',
+			11 => 'Ноябрь',
+			12 => 'Декабрь'
+		);
+
+        $prevBtn = 'Назад';
+        $nextBtn = 'Вперед';
+        $todayBtn = 'Сегодня';
+
+    // передаем массив ивентам
+    // TODO изменить массив, где индекс низачто не отвечает, в его значениях уже передавать дату начала и окончания, а так же остальные данные, такие как текст, ссылка и т.д
+        $events = array(
+            '16'    => 'Заплатить ипотеку',
+            '23.11' => 'День защитника Отечества',
+            '08.11' => 'Международный женский день',
+            '31.11' => 'Новый год'
+        );
+ 
+        // создается рисовка календаря
+		$month = intval($month);
+        // создается рисовка шапки календаря
+		$out = '
+		<div class="calendar-item">
+			<div style="display: flex; justify-content: space-between">
+                <div>
+                    <button>' . $prevBtn . '</button>
+                    <button>' . $nextBtn . '</button>
+                </div>
+                <div class="calendar-head">' . $months[$month] . ' ' . $year . '</div>
+                <div>
+                    <button>' . $todayBtn . '</button>
+                </div>
+            </div>
+			<table>
+				<tr>
+					<th>Пн</th>
+					<th>Вт</th>
+					<th>Ср</th>
+					<th>Чт</th>
+					<th>Пт</th>
+					<th>Сб</th>
+					<th>Вс</th>
+				</tr>';
+        
+		$day_week = 
+        // https://otus.ru/nest/post/1720/ (Буква N означает формат вывода даты)
+        // 'N' порядковый номер дня недели от 1 (понедельник) до 7 (воскресенье) в соответствии со стандартом ISO-8601, (добавлен в версии РНР 5.1.0)
+            date('N', mktime(0, 0, 0, $month, 1, $year));
+        // mktime( час, минут, секунда, месяц, день, год )
+
+
+        // пока не понимаю для чего day_week--
+		$day_week--;
+ 
+		$out.= '<tr>';
+        // цикл рисовки дней недели 
+		for ($x = 0; $x < $day_week; $x++) {
+			$out.= '<td></td>';
+		}
+ 
+		$days_counter = 0;
+        // 't' число дней в указанном месяце (от 28 до 31)	
+		$days_month = date('t', mktime(0, 0, 0, $month, 1, $year));
+	
+        // день = 1, число дня должно меньше, чем что определила переменная days_month, если так, добавляем один день
+		for ($day = 1; $day <= $days_month; $day++) {
+            // если сегодняшний день, то добавляем класс today
+			if (date('j.n.Y') == $day . '.' . $month . '.' . $year) {
+				$class = 'today';
+			} 
+            // если день не относится к текущему месяцу, то добавляем класс last
+            elseif (time() > strtotime($day . '.' . $month . '.' . $year)) {
+				$class = 'last';
+			} 
+            // если день не сегодня и он подходит в наш месяц, никакого класса не рисуем
+            else {
+				$class = '';
+			}
+			// переменная включает отображение дней, где есть событие. Если будет true - все дни станут подсвечиваться, как еслибы там было событие
+			$event_show = false;
+            // переменная задает текст для событий
+			$event_text = array();
+
+            // если события есть
+			if (!empty($events)) {
+                // запускаем цикл
+				foreach ($events as $date => $text) {
+
+                    var_dump($date);
+					$date = explode('.', $date);
+                    var_dump($date);
+                    
+					if (count($date) == 3) {
+						$y = explode(' ', $date[2]);
+						if (count($y) == 2) {
+							$date[2] = $y[0];
+						}
+ 
+						if ($day == intval($date[0]) && $month == intval($date[1]) && $year == $date[2]) {
+							$event_show = true;
+							$event_text[] = $text;
+                            
+						}
+					} elseif (count($date) == 2) {
+						if ($day == intval($date[0]) && $month == intval($date[1])) {
+							$event_show = true;
+							$event_text[] = $text;
+                            // вывело 8 11 и 23 11 (выводит события, которые только в течении этого месяца?)
+						}
+					} elseif ($day == intval($date[0])) {
+						$event_show = true;
+						$event_text[] = $text;
+                        // вывело 16 число (может быть ежемесячные события так выводятся?)
+					}				
+				}
+			}
+			
+			if ($event_show) {
+				$out.= '<td class="calendar-day ' . $class . ' event">' . $day;
+				if (!empty($event_text)) {
+                    // окно вывода информации о дне
+					$out.= '<div class="calendar-popup">' . implode('<br>', $event_text) . ' TEXT ' . '</div>';
+				}
+				$out.= '</td>';
+			} else {
+				$out.= '<td class="calendar-day ' . $class . '">' . $day . '</td>';
+			}
+ 
+			if ($day_week == 6) {
+				$out.= '</tr>';
+				if (($days_counter + 1) != $days_month) {
+					$out.= '<tr>';
+				}
+				$day_week = -1;
+			}
+ 
+			$day_week++; 
+			$days_counter++;
+		}
+ 
+		$out .= '</tr></table></div>';
+		return $out;
+	}
+	
+	/**
+	 * Вывод календаря на несколько месяцев.
+	 */
+	public static function  getInterval($start, $end, $events = array())
+	{
+		$curent = explode('.', $start);
+		$curent[0] = intval($curent[0]);
+		
+		$end = explode('.', $end);
+		$end[0] = intval($end[0]);
+ 
+		$begin = true;
+		$out = '<div class="calendar-wrp">';
+		do {
+			$out .= self::getMonth($curent[0], $curent[1], $events);
+ 
+			if ($curent[0] == $end[0] && $curent[1] == $end[1]) {
+				$begin = false;
+			}		
+ 
+			$curent[0]++;
+			if ($curent[0] == 13) {
+				$curent[0] = 1;
+				$curent[1]++;
+			}
+		} while ($begin == true);	
+		
+		$out .= '</div>';
+		return $out;
+	}
+}

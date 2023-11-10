@@ -60,7 +60,6 @@
                                 
             ?>
 
-
             <?php
                 global $post;
 
@@ -97,9 +96,14 @@
                
             </pre>
             <div class="events__list"></div>
+            <hr>
+            <hr>
+            <hr>
         </div>
         
-        <div id="calendar"></div>
+        <!-- <div id="calendar"></div> -->
+        <?php echo Calendar::getMonth(date('n'), date('Y')); ?>
+        
     </div>
 </div>
 
@@ -108,36 +112,3 @@
 </script>
     
 <?php get_footer(); ?>
-
-<?php
-    global $post;
-
-    $myposts = get_posts([ 
-        'numberposts' => -1,
-        'post_type'   => 'calendar_event',
-        'order'       => 'date'
-    ]);
-
-    if( $myposts ){
-        foreach( $myposts as $post ){
-            $date_start = (int)get_post_meta($post->ID, 'event_start', true);
-            $date_end = (int)get_post_meta($post->ID, 'event_end', true);
-            if ($date_start >= 20231108 && $date_start <= 20231112) {
-                setup_postdata( $post );
-            
-?>
-    <div>
-        <?php the_title(); ?>
-        <?php the_field('event_start'); ?>
-        <?php the_field('event_end'); ?>
-        <?php the_field('event_url'); ?>
-    </div>
-<?php 
-        } else {
-                
-        }     }
-    } else {
-        
-    }
-    wp_reset_postdata();
-?>

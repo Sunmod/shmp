@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var view = calendar.view;
   console.log(view.activeStart);
   console.log(view.activeEnd);
-  console.log(view.title);
 
   calendar.render();
 });
