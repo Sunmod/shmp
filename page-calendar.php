@@ -101,7 +101,7 @@
         
         <!-- <div id="calendar"></div> -->
         <?php echo Calendar::getMonth(date('n'), date('Y'), $events); ?>
-        
+
     </div>
 </div>
 
