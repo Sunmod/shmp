@@ -1028,4 +1028,50 @@ select {
 .events__block {
   display: flex;
   justify-content: space-between;
+}
+
+.select {
+  width: 250px;
+  position: relative;
+  border: 1px solid #000;
+}
+.select .select__header {
+  cursor: pointer;
+  display: flex;
+}
+.select .select__header .select__current {
+  font-size: 18px;
+  line-height: 24px;
+  padding: 8px;
+}
+.select .select__header .select__icon {
+  align-items: center;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: start;
+  height: 40px;
+  margin-left: auto;
+  text-align: center;
+  width: 40px;
+}
+.select .select__body {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  border: 1px solid #000;
+  border-top: 0;
+}
+.select .select__body .select__item {
+  line-height: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+}
+.select .select__body .select__item:hover {
+  background-color: #ccc;
+}
+.select.active .select__body {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

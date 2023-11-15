@@ -7,9 +7,9 @@ function script_styles() {
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css' );
     wp_enqueue_style('calendar', get_template_directory_uri() . '/assets/css/calendar.css' );
 
+    wp_enqueue_script( 'dropdown', get_template_directory_uri() . '/assets/js/dropdown.js',  array(), '1' ); 
     wp_enqueue_script( 'calendar1', get_template_directory_uri() . '/assets/js/script.js',  array(), '1' );
     wp_enqueue_script( 'calendar2', get_template_directory_uri() . '/assets/js/index.global.js',  array(), '1' ); 
-    wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js',  array(), '1' ); 
 }
 
 add_theme_support('post-thumbnails');
@@ -89,6 +89,14 @@ add_filter( 'single_template', function ( $single_template ) {
     return $single_template;
 }, PHP_INT_MAX, 2 );
 
+// скрываем версию WP
+remove_action('wp_head', 'wp_generator');
+
+
+
+
+
+// календарь
 $events = array(
     '16'    => 'Заплатить ипотеку',
     '08.11' => 'Международный женский день',
@@ -297,3 +305,24 @@ class Calendar
 		return $out;
 	}
 }
+
+
+// календарь как виджет
+
+function true_register_wp_sidebars() {
+ 
+	/* В боковой колонке - первый сайдбар */
+	register_sidebar(
+		array(
+			'id' => 'wp_calendar', // уникальный id
+			'name' => 'Садбар календаря', // название сайдбара
+			'description' => 'Перетащите сюда виджеты, чтобы добавить их в сайдбар.', // описание
+			'before_widget' => '<div id="%1$s" class="side widget %2$s">', // по умолчанию виджеты выводятся <li>-списком
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widget-title">', // по умолчанию заголовки виджетов в <h2>
+			'after_title' => '</h3>'
+		)
+	);
+}
+ 
+add_action( 'widgets_init', 'true_register_wp_sidebars' );
